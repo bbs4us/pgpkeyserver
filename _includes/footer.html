@@ -1,17 +1,23 @@
+	</div>
+</div>
                 {% if page.url contains 'guides' %}
                     <div id="modifydate" style="font-size:0.8em;text-align:right"><p>Modified: {{ page.last_modified_at | date: '%d-%b-%Y'}}</p></div>
                 {% endif %}
 		<!-- Starting Footer Section -->
-		<div id="footer">
-			<div class="footer-left">
-				<p><a href="{{ site.url }}">Home</a> | <a href='https://github.com/mattrude/pgpkeyserver#readme' target='_blank'>Source</a> | <a href='https://github.com/mattrude/pgpkeyserver/issues' target='_blank'>Issues</a> | <a href="{{ '/contact/' | prepend: site.url }}">Contact</a> | <a href="{{ '/changelog/' | prepend: site.url }}">Changelog</a></p>
-			</div>
-			<div class="footer-right">
-				<p>Copyright &copy; {{ site.time | date: "%Y" }} by <a href='http://mattrude.com' target='_blank'>Matt Rude</a></p>
-			</div>
-		</div>
-	</div>
-</div>
+                <footer class="blog-footer">
+                    <hr />
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-md-8">
+                        <p class="text-left"><a href="{{ site.url }}">Home</a> | <a href='https://github.com/mattrude/pgpkeyserver#readme' target='_blank'>Source</a> | <a href='https://github.com/mattrude/pgpkeyserver/issues' target='_blank'>Issues</a> | <a href="{{ '/contact/' | prepend: site.url }}">Contact</a> | <a href="{{ '/changelog/' | prepend: site.url }}">Changelog</a></p>
+                        </div>
+                        <div class="col-md-4">
+                        <p class="text-right">Copyright &copy; {{ site.time | date: "%Y" }} by <a href='http://mattrude.com' target='_blank'>Matt Rude</a></p>
+                        </div>
+                    </div>
+		</footer>
 {% include analytics.html %}
+<script src="{{ site.url }}/assets/js/jquery-1.11.2.min.js"></script>
+<script src="{{ site.url }}/assets/bootstrap/{{ site.bootstrap_version }}/js/bootstrap.min.js"></script>
 </body>
 </html>

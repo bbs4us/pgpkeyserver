@@ -2,9 +2,12 @@
 title: OpenPGP Public Keyserver
 email: matt@mattrude.com
 description: ""
-url: "https://keyserver.mattrude.com"
-baseurl: "keyserver.mattrude.com"
-destination: "/var/www/html"
+url: "http://devel-keyserver.mattrude.com"
+baseurl: "devel-keyserver.mattrude.com"
+destination: "/var/www/devel"
+
+# Bootstrap
+bootstrap_version: 3.3.1
 
 # Analytics settings
 google_analytics_id: UA-55622044-1
@@ -20,10 +23,11 @@ exclude:
 
 gems:
 - jekyll-sitemap
-- jekyll-less
-- jekyll-press
 - jekyll-redirect-from
 - jekyll-last-modified-at
+#- jekyll-less
+#- jekyll-press
+
 
 jekyll-press:
   exclude: 'robots.txt' # Exclude files from processing - file name, glob pattern or array of file names and glob patterns

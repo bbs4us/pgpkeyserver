@@ -1,29 +1,109 @@
 ---
-layout: default
+layout: index
 ---
-
-<p>This server hosts and relays <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">pgp</a> public keys via the <a href="https://sks-keyservers.net/overview-of-pools.php" target="_blank">sks-keyserver pool</a>.  You may connect to this network by adding <strong>pool.sks-keyservers.net</strong> to the keyserver option in your pgp software.</p>
-
-<h2>Extract a key from the pool</h2>
-
-<p>You can extract a key by typing in some words that appear in the user id of the key you are looking for, or by typing in the keyid in hex format (“0x…”)</p>
-
-{% include form-extract.html %}
-
-<h2>Submit a key to the pool</h2>
-
-<p>Enter your ASCII-armored PGP key here:</p>
-
-{% include form-submit.html %}
-
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>OpenPGP Public Keyserver <small>{{ site.baseurl }}</small></h1>
+        </div>
+    </div>
+<div class="container">
+<p>This server is a host and relay for <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">pgp</a> public keys via the <a href="https://sks-keyservers.net/overview-of-pools.php" target="_blank">sks-keyserver pool</a>. You may connect to this network by adding <strong>pool.sks-keyservers.net</strong> to the keyserver option in your pgp software.</p>
+<p>The sks-keyserver pool is a pool of approximately one hundred (100) servers that store, relay and publish pgp keys uploaded to each server.  When you upload your key to one sks-keyserver pool server, it will quickly be relayed to the other sks-keyserver servers active in the pool.</p>
+<hr />
+<div class="row">
+  <div class="col-md-6">
+      <h2>Extract a key from the pool</h2>
+        <p>
+          You can find a key by typing in some words that appear in the userid (name, email, etc.) of the key you're looking for, or by typing in the keyid in hex format ("0x&#8230;").
+        </p>
+        <p>
+          <form class="form-horizontal" action="/pks/lookup">
+            <fieldset>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="search">Search String:</label>
+                <div class="col-md-8">
+                  <input id="search" name="search" class="form-control input-md" required="" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="op">Index Type:</label>
+                <div class="col-md-8">
+                  <label class="radio-inline" for="op-0">
+                    <input name="op" id="op-0" value="vindex" checked="checked" type="radio">verbose index</label>
+                  <label class="radio-inline" for="op-1">
+                    <input name="op" id="op-1" value="index" type="radio">regular index</label>
+                  <label class="radio-inline" for="op-2">
+                    <input name="op" id="op-2" value="get" type="radio">ascii-armored keys</label>
+                  <label class="radio-inline" for="op-3">
+                    <input name="op" id="op-3" value="hget" type="radio">search full-key hash</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="box">Index Options:</label>
+                <div class="col-md-8">
+                  <label class="checkbox-inline" for="box-0">
+                    <input name="fingerprint" id="box-0" type="checkbox" checked="">fingerprints</label>
+                  <label class="checkbox-inline" for="box-1">
+                    <input name="hash" id="box-1" type="checkbox">show full-key hashs</label>
+                  <label class="checkbox-inline" for="box-2">
+                    <input name="options" id="box-2" value="mr" type="checkbox">machine readable</label>
+                </div>
+                </div>
+                <div class="row">
+                <div class="pull-right">
+                    <button class="btn btn-default" type="reset">Reset</button>
+                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+                </div>
+                </div>
+            </fieldset>
+        </form>
+      </p>
+  </div>
+  <div class="col-md-6">
+      <h2>Submit a key to the pool</h2>
+      <p>Enter your ASCII-armored PGP key here:</p>
+      <form class="form-horizontal" action="/pks/add" method="post">
+        <fieldset>
+          <div class="form-group">
+            <div class="col-md-12">
+              <textarea class="form-control" id="keytext" name="keytext" rows="10"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="pull-right">
+              <button class="btn btn-default" type="reset">Reset</button>
+              <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-cloud-upload"></span> Submit</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="jumbotron">
+<div class="container">
 <h2>About this service</h2>
-<p>This web page is provided as a convenient alternative to the usual methods of interacting with the keyserver. Key submission and retrieval are usually handled by key management software (such as <a href="http://www.gnupg.org/" target="_blank">GnuPG</a>) on your local system.</p>
-
-<p>This keyserver supports both the traditional email interface <a href="http://pks.sourceforge.net/" target="_blank">pks</a> (for key submission only), and the more common <a href="http://tools.ietf.org/html/draft-shaw-openpgp-hkp-00" target="_blank">hkp</a> interface, for interaction with PGP key management software.</p>
-
-<ul>
-    <li>Learn more about <a href="https://bitbucket.org/skskeyserver/sks-keyserver/wiki/Home#!overview" target="_blank">SKS Keyservers</a></li>
-    <li>Check the status of the <a href="https://sks-keyservers.net/status/" target="_blank">SKS Keyserver Network</a></li>
-    <li>Check the status of <a href="{{ site.url }}/pks/lookup?op=stats" target="_blank">this keyserver</a></li>
-</ul>
+<p>This web page is provided as a convenient alternative to the usual methods of interacting with the keyserver. Key submission and retrieval are usually handled by key management software (such as <a href="http://www.gnupg.org/" target="_blank">GnuPG</a>) on your local system.</p><p>This keyserver supports both the traditional email interface <a href="http://pks.sourceforge.net/" target="_blank">pks</a> (for key submission only), and the more common <a href="http://tools.ietf.org/html/draft-shaw-openpgp-hkp-00" target="_blank">hkp</a> interface, for interaction with PGP key management software.</p><ul><li>Learn more about <a href="https://bitbucket.org/skskeyserver/sks-keyserver/wiki/Home#!overview" target="_blank">SKS Keyservers</a></li><li>Check the status of the <a href="https://sks-keyservers.net/status/" target="_blank">SKS Keyserver Network</a></li><li>Check the status of <a href="https://keyserver.mattrude.com/pks/lookup?op=stats" target="_blank">this keyserver</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+                <footer class="blog-footer">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-md-8">
+                        <p class="text-left"><a href="{{ site.url }}">Home</a> | <a href='https://github.com/mattrude/pgpkeyserver#readme' target='_blank'>Source</a> | <a href='https://github.com/mattrude/pgpkeyserver/issues' target='_blank'>Issues</a> | <a href="{{ '/contact/' | prepend: site.url }}">Contact</a> | <a href="{{ '/changelog/' | prepend: site.url }}">Changelog</a></p>
+                        </div>
+                        <div class="col-md-4">
+                        <p class="text-right">Copyright &copy; {{ site.time | date: "%Y" }} by <a href='http://mattrude.com' target='_blank'>Matt Rude</a></p>
+                        </div>
+                    </div>
+                </footer>
+{% include analytics.html %}
+<link rel="stylesheet" href="{{ site.url }}/assets/bootstrap/{{ site.bootstrap_version }}/css/bootstrap.min.css">
+<script src="{{ site.url }}/assets/js/jquery-1.11.2.min.js"></script>
+<script src="{{ site.url }}/assets/bootstrap/{{ site.bootstrap_version }}/js/bootstrap.min.js"></script>
+</body>
+</html>
 
