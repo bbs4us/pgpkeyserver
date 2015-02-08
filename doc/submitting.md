@@ -4,7 +4,7 @@ title: Submitting Keys
 permalink: /doc/submitting/
 ---
 
-## How-to submit a key
+## How to submit a key
 
 1. Cut-and-paste an ASCII-armored version of your public key into the text box.
 1. Press **Submit key to pool**.

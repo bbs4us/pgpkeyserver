@@ -20,7 +20,7 @@ This script is intended to be ran from cron, since sks requires the db process t
 # This script will stop the sks server, dump its contents to
 # the $PREDIR, then restart the sks server.
 
-COUNT="10000"
+COUNT="25000"
 SKSDATE=`date +%Y-%m-%d`
 USER="debian-sks"
 INDIR="/var/lib/sks"
@@ -68,15 +68,15 @@ echo "This is the PGP key server dump from keyserver.mattrude.com created: `date
 
 On a linux/unix system, you may download this directory via the following command:
 
-wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories http://keyserver.mattrude.com/dump/current/
+wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://key.bbs4.us/dump/current/
 
 These files were created with the following command: sks dump $COUNT $SKSDATE/ sks-dump
 
 The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES files.
 
-If you would like to peer with this server, please send an email to <matt@mattrude.com>.
+If you would like to peer with this server, please send an email to <coppertint@riseup.net>.
 
-For more information on importing keys from dump files, please see http://keyserver.mattrude.com/guides/building-server/" > $OUTDIR/README.txt
+For more information on importing keys from dump files, please see http://keyserver.mattrude.com/guides/building-server/ and https://key.bbs4.us/guides/building-server/" > $OUTDIR/README.txt
 
 chown -R $USER:$USER $PREDIR
 {% endhighlight %}

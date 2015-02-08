@@ -4,18 +4,14 @@ title: Contact Me
 permalink: /contact/
 ---
 
-This site is maintained by Matt Rude ([0x27143affdd23bf73]({{ site.url }}/pks/lookup?search=0x27143affdd23bf73&fingerprint=on&hash=on&op=vindex)). If you would like to report any problems or bugs, please send a email to <matt@mattrude.com>, or use the below <a href="#" onclick="javascript:window.open('https://encrypt.to/matt', '_blank', 'toolbar=no, scrollbars=no, resizable=yes, width=800, height=550');">secure contact form</a>.
-
-Alternatively, you may send me a message via [bitmessage](http://bitmessage.org) by sending a message to the secure address `BM-NC4p7gxf1Ejrip9AJisx66FYXjvnsAB4`.
+This site is maintained by Jonathan Zhang ([0xB35B27E07F99ABEC]({{ site.url }}/pks/lookup?search=0x27143affdd23bf73&fingerprint=on&hash=on&op=vindex)). If you would like to report any problems or bugs, please send a email to <coppertint@riseup.net>.
 
 ### My Public PGP Key Information
 
-    uid = Matt Rude <matt@mattrude.com>
-    pub = 4096R/27143AFFDD23BF73 2014-06-21
-    fingerprint = AE73 8427 2B91 AD63 5902  320B 2714 3AFF DD23 BF73
+pub = nistp521/0xB35B27E07F99ABEC 2014-12-28
+fingerprint = EEB4 454F D52B D587 A4AA  0D1F B35B 27E0 7F99 ABEC
+uid = Jonathan Zhang <coppertint@riseup.net>
+uid = Jonathan Zhang (ECC) <jonathan@bbs4.us>
+
 
 You may also validate my key using my [PKA]({{ site.url }}/guides/public-key-association/) DNS record.
-
-## Secure Contact Form
-
-<iframe height="600" width="100%" frameborder="0" src="https://encrypt.to/matt"></iframe>

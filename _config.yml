@@ -1,13 +1,13 @@
 # Site settings
-title: OpenPGP Public Keyserver
-email: matt@mattrude.com
+title: 4us keyserver
+email: jonathan@bbs4.us
 description: ""
-url: "https://keyserver.mattrude.com"
-baseurl: "keyserver.mattrude.com"
+url: "https://key.bbs4.us"
+baseurl: "key.bbs4.us"
 destination: "/var/www/html"
 
 # Analytics settings
-google_analytics_id: UA-55622044-1
+google_analytics_id: UA-59500027-1
 
 # Build settings
 markdown: kramdown
